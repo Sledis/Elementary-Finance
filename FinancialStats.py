@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[36]:
+# In[1]:
 
 
 #This is a collection of statistical functions that I will need.
@@ -23,7 +23,7 @@ def Trim(*args):
     return I
 
 
-# In[37]:
+# In[2]:
 
 
 #We now create a function that will take some lists and produce a numpy array of their means.
@@ -37,7 +37,7 @@ def Means(*args):
     return Means
 
 
-# In[38]:
+# In[3]:
 
 
 #We now define the covariance function of two lists
@@ -57,7 +57,7 @@ def Covar(A,B):
         print("Can not calculate the covariance of 1 bit of data.")
 
 
-# In[39]:
+# In[4]:
 
 
 #We now create the sigma covariance matrix.
@@ -71,7 +71,7 @@ def Sigma(*args):
     return Sig
 
 
-# In[ ]:
+# In[5]:
 
 
 #The following an inverse cumulative normal function calculator.
@@ -123,14 +123,14 @@ def ICNF(x):
         print("Undefined")
 
 
-# In[ ]:
+# In[6]:
 
 
 #We now define a computative form of the cumulative normal function taken from page 417 of Joshi.
 
 
 def LHCNF(x):
-    #This computes the left hand side of the normal
+    #This computes the left hand side of the normal function
     if x>0:
         k=1/(1+0.2316419*x)
         
@@ -142,8 +142,15 @@ def LHCNF(x):
         return print("Undefined")
     
 def NCF(x):
+    #For any real x this gives N(x)
     if x>=0:
         return LHCNF(x)
     if x<0:
         return 1-LHCNF(-x)
+
+
+# In[ ]:
+
+
+
 
