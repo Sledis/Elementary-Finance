@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[11]:
+# In[2]:
 
 
-import random
+from numpy import random
 import sys
 from math import exp
 sys.path.insert(0, 'D:\My Documents\GitHub\Elementary-Finance')
@@ -20,21 +20,25 @@ def RandomVector(l,**kwargs):
     #a normal distribution is required unless specified, currfently only normal and unf are available.
     
     random.seed(0)
-    I=[0]*l
+    
     if "Seed" in kwargs:
         random.seed(kwargs["Seed"])
-    for i in range(l):
-        if "Dist" in kwargs:
-            if kwargs["Dist"]=="Unif":
-                I[i]=random.random()
-            else:
-                return print("Distribution is not valid.")
+        
+    I=random.rand(l)
+    
+    if "Dist" in kwargs:
+        if kwargs["Dist"]=="Unif":
+            R=I
         else:
-            I[i]=ICNF(random.random())
-    return I
+            return print("Distribution is not valid.")
+    else:
+        R=["Not Defined"]*l
+        for i in range(l):
+            R[i]=ICNF(I[i])
+    return R
 
 
-# In[12]:
+# In[2]:
 
 
 def StockEvolver(Share,WS,T,l,**kwargs):
@@ -51,7 +55,7 @@ def StockEvolver(Share,WS,T,l,**kwargs):
     return I
 
 
-# In[13]:
+# In[3]:
 
 
 def MonteCarloPricer(O,WS,l,**kwargs):
@@ -68,6 +72,13 @@ def MonteCarloPricer(O,WS,l,**kwargs):
 
 
 
+
+
+# In[25]:
+
+
+random.seed(0)
+random.rand(10)
 
 
 # In[ ]:
