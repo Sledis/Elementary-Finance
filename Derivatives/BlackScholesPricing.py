@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[314]:
+# In[2]:
 
 
 #This will contain several derivative pricing functions for the most elementary of options, ie European
@@ -27,7 +27,7 @@ def BSF(O,WS):
     return exp(-r*T)*(exp((r-d)*T)*S-K)
 
 
-# In[315]:
+# In[3]:
 
 
 #We first define the Black Scholes European call function as given by the formula
@@ -48,7 +48,7 @@ def BSC(O,WS):
     return C
 
 
-# In[316]:
+# In[4]:
 
 
 #Now, the Black Scholes European put.
@@ -68,7 +68,7 @@ def BSP(O,WS):
     return C
 
 
-# In[317]:
+# In[5]:
 
 
 #We now check that these functions are working properly by using the put-call parity theorem.
@@ -79,7 +79,7 @@ def BSCheck(O,WS):
         return print("Undefined")
 
 
-# In[318]:
+# In[6]:
 
 
 #We now define the Digital Call option
@@ -99,7 +99,7 @@ def DC(O,WS):
     
 
 
-# In[319]:
+# In[7]:
 
 
 #We now define the Digital Put option
@@ -118,7 +118,7 @@ def DP(O,WS):
     return exp(-r*T)*NCF(d)
 
 
-# In[320]:
+# In[8]:
 
 
 #We now define the zero coupon bond, so that we can check the digitals using put call parity
@@ -135,7 +135,7 @@ def DCheck(O,WS):
         return print("Undefined")
 
 
-# In[321]:
+# In[9]:
 
 
 #We now define a big calling function. Type will also be a vector of the form Type=[Name,pay off function,*args]
@@ -158,7 +158,7 @@ def BlackScholes(O,WS):
     
 
 
-# In[322]:
+# In[10]:
 
 
 #We now define a function that can take a black scholes option, world state, a greek and a step length
@@ -194,7 +194,7 @@ def Greek(O,WS,G,step):
         
 
 
-# In[323]:
+# In[11]:
 
 
 def BlackScholesGreeks(O,WS,G,step):
@@ -212,7 +212,7 @@ def BlackScholesGreeks(O,WS,G,step):
     
 
 
-# In[324]:
+# In[12]:
 
 
 
@@ -233,7 +233,7 @@ def BSDelta(O,WS):
         return print("Not defined for that option")
 
 
-# In[325]:
+# In[13]:
 
 
 def BSVega(O,WS):
@@ -255,7 +255,7 @@ def BSVega(O,WS):
         return print("Not defined for that option")
 
 
-# In[326]:
+# In[14]:
 
 
 def BSRho(O,WS):
@@ -275,4 +275,23 @@ def BSRho(O,WS):
         return A+B
     else:
         return print("Not defined for that option")
+
+
+# In[18]:
+
+
+S=[100,0,0,0.1]
+WS=[0]
+T=1
+
+
+Type=["DP"]
+Option=[Type,S,1,100]
+BlackScholes(Option,WS)
+
+
+# In[ ]:
+
+
+
 
