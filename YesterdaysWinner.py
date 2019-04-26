@@ -90,14 +90,16 @@ def SheetUpdate(*args):
         col_len = len(ws.col_values(1))
 
         
+    ValueAtClose=PortfollioValue(*args)
+    ws.update_cell(col_len,l+3,ValueAtClose)    
     if BanksOpen(UK2019,tomorrow)==1:        
         A=NewPortfollio(*args)
         
-        ValueAtClose=PortfollioValue(*args)
+        
         
         #here we have calculated the portfollio that we should buy at the begining of trading the next day, and the value that 
         #We get from selling our current portfollio.
-        ws.update_cell(col_len,l+3,ValueAtClose)
+        
     
 
         

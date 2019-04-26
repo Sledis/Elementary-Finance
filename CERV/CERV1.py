@@ -113,12 +113,12 @@ def SheetUpdate(Exp,*args):
         #it will over-write our test (incorrect data).
         ws.delete_row(col_len)
         col_len = len(ws.col_values(1))
-
-        
+    ValueAtClose=PortValue(*args)
+    ws.update_cell(col_len,l+3,ValueAtClose)  
     if BanksOpen(UK2019,tomorrow)==1:      
         
 
-        ValueAtClose=PortValue(*args)
+        
         CurrentPrice=DC.PsFromURL(*args)
         #First we calculate how much money we currently have
         
@@ -135,7 +135,7 @@ def SheetUpdate(Exp,*args):
         
         
         
-        ws.update_cell(col_len,l+3,ValueAtClose)
+        
     
 
         
