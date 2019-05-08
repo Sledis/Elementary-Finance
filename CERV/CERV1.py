@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[9]:
 
 
 #This caclulates portfollios to reblanace once a day based on the CER model. It will run on several 
@@ -44,7 +44,7 @@ def MinPort(Exp,*args):
     l=len(args)
     b=np.zeros(l+2)
     Mean=Means(*args)
-    print(Mean)
+    
     Sig=Sigma(*args)
 
     #We define the vector b as given by page 12 of http://faculty.washington.edu/ezivot/econ424/portfolioTheoryMatrix.pdf
@@ -73,7 +73,7 @@ def MinPort(Exp,*args):
    
 
 
-# In[2]:
+# In[10]:
 
 
 #We will need a function that can take our current portfollio and evaluate it's value.
@@ -95,7 +95,7 @@ def PortValue(*args):
     return Cash
 
 
-# In[3]:
+# In[11]:
 
 
 #We now combine these to update the spreadsheet
@@ -124,7 +124,7 @@ def SheetUpdate(Exp,*args):
         
         Histories=DC.HistoriesFromURL(*args)
         Returns=DC.PricesToReturns(*Histories)
-        A=MinPort(Exp,*Returns)
+        A=MinPort((1+Exp)**(1/260)-1,*Returns)
         #here we have calculated the portfollio that we should buy at the begining of trading the next day, and the value that 
         #We get from selling our current portfollio.
         
@@ -145,7 +145,7 @@ def SheetUpdate(Exp,*args):
         ws.insert_row(B, col_len+1)
 
 
-# In[6]:
+# In[12]:
 
 
 #We now intialize the spreadsheet and start buldining naively portfollios to see how it will trade them in the coming months.
@@ -156,7 +156,7 @@ client = gspread.authorize(creds)
 ss = client.open('CERV1')
 
 
-# In[7]:
+# In[13]:
 
 
 #Big4
@@ -169,7 +169,7 @@ ws = ss.worksheet("Big4")
 SheetUpdate(0.01,*Big4)
 
 
-# In[13]:
+# In[14]:
 
 
 #Chens
@@ -182,7 +182,7 @@ ws=ss.worksheet("Chen")
 SheetUpdate(0.12,*chen)
 
 
-# In[14]:
+# In[15]:
 
 
 #Sams
@@ -195,7 +195,7 @@ ws=ss.worksheet("Sam")
 SheetUpdate(0.03,*sam)
 
 
-# In[15]:
+# In[16]:
 
 
 #James
