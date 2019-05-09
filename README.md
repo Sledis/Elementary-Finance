@@ -6,7 +6,7 @@ FinancialStats is a collection of useful stats programs, means, covariance matri
 Holiday Logic is a basic program for determining if a day is a holiday in the UK during 2019.
 
 There are two trading programs.
-Yesterdays winner uses a once a day rebalancing strategy of selling everything and buying the the most recent best performed of the Big 4 banks. It's trades are stored here https://docs.google.com/spreadsheets/d/14oI_ZUOpXOfWaD8FnwYualJLqitZXWCJh5S20huaAHI/edit?usp=sharing
+Yesterdays winner uses a once a day rebalancing strategy of selling everything and buying the the most recent best performed of the Big 4 banks. It's trades are stored here https://docs.google.com/spreadsheets/d/14oI_ZUOpXOfWaD8FnwYualJLqitZXWCJh5S20huaAHI/edit?usp=sharing. There is also a historic test for the yesterdays winner function that can take csv files and produce a csv file of the strat over that time period, they have indicated that the strat is as useless as it sounds.
 CERV uses the CER model as outlined in http://faculty.washington.edu/ezivot/econ424/portfolioTheoryMatrix.pdf and the data can be found in https://docs.google.com/spreadsheets/d/1V4-ibttRKCvFJyOrqVu6AIjGC0FWr7Qb8kB0lq6e7tk/edit#gid=0
 
 There is a Derivatives folder, in this will go all the programs related to options pricing.
