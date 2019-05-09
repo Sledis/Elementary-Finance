@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 #This will implement a trading strategy applied at the open every morning. It will sell all its portfollio and use that money
@@ -37,7 +37,7 @@ def Winner(*args):
 
 
 
-# In[3]:
+# In[2]:
 
 
 #We now define a function that will calculate how much money we have at the end of the day
@@ -56,7 +56,7 @@ def PortfollioValue(*args):
     return Cash
 
 
-# In[4]:
+# In[3]:
 
 
 def NewPortfollio(*args):
@@ -70,7 +70,7 @@ def NewPortfollio(*args):
     return Portfollio
 
 
-# In[5]:
+# In[4]:
 
 
 #We now combine these to update the spreadsheet
@@ -109,7 +109,7 @@ def SheetUpdate(*args):
         ws.insert_row(B, col_len+1)
 
 
-# In[6]:
+# In[5]:
 
 
 #I now pick the following 4 stocks of the big 4 british banks.
@@ -119,7 +119,7 @@ c=["https://uk.finance.yahoo.com/quote/LLOY.L?p=LLOY.L",'p']
 d=["https://uk.finance.yahoo.com/quote/RBS.L?p=RBS.L",'p']
 
 
-# In[9]:
+# In[6]:
 
 
 #This block of code initalizes the code accessing the google sheet of historic trades and cash value
